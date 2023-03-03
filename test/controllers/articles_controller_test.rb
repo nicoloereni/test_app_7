@@ -3,6 +3,11 @@ require "test_helper"
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @article = articles(:one)
+    @article.update(user: users(:one))
+  end
+
+  teardown do
+    Article.destroy_all
   end
 
   test "should get index" do
