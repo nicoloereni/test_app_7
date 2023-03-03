@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :articles
+  resources :categories, except: [:destroy]
   root 'pages#home'
   get 'about', to: 'pages#about'
   get 'signup', to: 'users#new'
