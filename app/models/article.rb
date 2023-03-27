@@ -8,4 +8,10 @@ class Article < ApplicationRecord
     user = self.user
     user ? user.username : "franco"
   end
+
+  def category_names
+    self.categories
+        .map { |category| category.name }
+        .join(", ")
+  end
 end
